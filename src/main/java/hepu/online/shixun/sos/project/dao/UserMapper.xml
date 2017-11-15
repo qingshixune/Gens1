@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hepu.online.shixun.sos.project.dao.UserMapper">
+	<resultMap type="hepu.online.shixun.sos.project.model.User"
+		id="BaseResultMap">
+		<id jdbcType="INTEGER" property="id" column="id" />
+		<result jdbcType="VARCHAR" property="address" column="address" />
+		<result jdbcType="DOUBLE" property="balance" column="balance" />
+		<result jdbcType="VARCHAR" property="email" column="email" />
+		<result jdbcType="VARCHAR" property="idNumber" column="idNumber" />
+		<result jdbcType="DOUBLE" property="income" column="income" />
+		<result jdbcType="VARCHAR" property="loginAccount" column="loginAccount" />
+		<result jdbcType="VARCHAR" property="nickName" column="nickName" />
+		<result jdbcType="VARCHAR" property="cardNumber" column="cardNumber" />
+		<result jdbcType="VARCHAR" property="password" column="password" />
+		<result jdbcType="VARCHAR" property="payword" column="payword" />
+		<result jdbcType="INTEGER" property="state" column="state" />
+		<result jdbcType="VARCHAR" property="userName" column="userName" />
+		<result jdbcType="VARCHAR" property="labelling" column="labelling" />
+		<result jdbcType="VARCHAR" property="occupation" column="occupation" />
+		<result jdbcType="VARCHAR" property="company" column="company" />
+		<result jdbcType="VARCHAR" property="hobby" column="hobby" />
+		<result jdbcType="DOUBLE" property="profit" column="profit" />
+		<result jdbcType="VARCHAR" property="msg" column="msg" />
+		<result jdbcType="INTEGER" property="age" column="age" />
+		<result jdbcType="CHAR" property="sex" column="sex" />
+		<result jdbcType="VARCHAR" property="constellations" column="constellations" />
+
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		id, address, balance, email, idNumber, income, loginAccount, nickName,
+		password,cardNumber
+		payword, sex, state, userName,labelling ,occupation
+		,company,profit,hobby,age,msg,constellations
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="hepu.online.shixun.sos.project.model.UserExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from user
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from user
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<delete id="deleteByExample" parameterType="hepu.online.shixun.sos.project.model.UserExample">
+		delete from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="hepu.online.shixun.sos.project.model.User">
+		insert into user (id, address, balance,
+		email, idNumber, income,
+		loginAccount, nickName, password,
+		payword, sex, state, userName,
+		creditScore, profession, systemMsg,
+		userBalance)
+		values (#{id,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR},
+		#{balance,jdbcType=DOUBLE},
+		#{email,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{income,jdbcType=DOUBLE},
+		#{loginaccount,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{payword,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{state,jdbcType=INTEGER},
+		#{username,jdbcType=VARCHAR},
+		#{creditscore,jdbcType=BIGINT}, #{profession,jdbcType=VARCHAR}, #{systemmsg,jdbcType=INTEGER},
+		#{userbalance,jdbcType=DOUBLE})
+	</insert>
+	<insert id="insertSelective" parameterType="hepu.online.shixun.sos.project.model.User">
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="balance != null">
+				balance,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="idNumber != null">
+				idNumber,
+			</if>
+			<if test="income != null">
+				income,
+			</if>
+			<if test="loginAccount != null">
+				loginAccount,
+			</if>
+			<if test="nickName != null">
+				nickName,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="payword != null">
+				payword,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="state != null">
+				state,
+			</if>
+			<if test="userName != null">
+				userName,
+			</if>
+			<if test="creditscore != null">
+				creditScore,
+			</if>
+			<if test="profession != null">
+				profession,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="balance != null">
+				#{balance,jdbcType=DOUBLE},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="idnumber != null">
+				#{idnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="income != null">
+				#{income,jdbcType=DOUBLE},
+			</if>
+			<if test="loginaccount != null">
+				#{loginaccount,jdbcType=VARCHAR},
+			</if>
+			<if test="nickname != null">
+				#{nickname,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="payword != null">
+				#{payword,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=CHAR},
+			</if>
+			<if test="state != null">
+				#{state,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="creditscore != null">
+				#{creditscore,jdbcType=BIGINT},
+			</if>
+			<if test="profession != null">
+				#{profession,jdbcType=VARCHAR},
+			</if>
+			<if test="systemmsg != null">
+				#{systemmsg,jdbcType=INTEGER},
+			</if>
+			<if test="userbalance != null">
+				#{userbalance,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="hepu.online.shixun.sos.project.model.UserExample"
+		resultType="java.lang.Integer">
+		select count(*) from user
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update user
+		<set>
+			<if test="record.id != null">
+				id = #{record.id,jdbcType=INTEGER},
+			</if>
+			<if test="record.address != null">
+				address = #{record.address,jdbcType=VARCHAR},
+			</if>
+			<if test="record.balance != null">
+				balance = #{record.balance,jdbcType=DOUBLE},
+			</if>
+			<if test="record.email != null">
+				email = #{record.email,jdbcType=VARCHAR},
+			</if>
+			<if test="record.idnumber != null">
+				idNumber = #{record.idnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="record.income != null">
+				income = #{record.income,jdbcType=DOUBLE},
+			</if>
+			<if test="record.loginaccount != null">
+				loginAccount = #{record.loginaccount,jdbcType=VARCHAR},
+			</if>
+			<if test="record.nickname != null">
+				nickName = #{record.nickname,jdbcType=VARCHAR},
+			</if>
+			<if test="record.password != null">
+				password = #{record.password,jdbcType=VARCHAR},
+			</if>
+			<if test="record.payword != null">
+				payword = #{record.payword,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sex != null">
+				sex = #{record.sex,jdbcType=CHAR},
+			</if>
+			<if test="record.state != null">
+				state = #{record.state,jdbcType=INTEGER},
+			</if>
+			<if test="record.username != null">
+				userName = #{record.username,jdbcType=VARCHAR},
+			</if>
+			<if test="record.creditscore != null">
+				creditScore = #{record.creditscore,jdbcType=BIGINT},
+			</if>
+			<if test="record.profession != null">
+				profession = #{record.profession,jdbcType=VARCHAR},
+			</if>
+			<if test="record.systemmsg != null">
+				systemMsg = #{record.systemmsg,jdbcType=INTEGER},
+			</if>
+			<if test="record.userbalance != null">
+				userBalance = #{record.userbalance,jdbcType=DOUBLE},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update user
+		set id = #{record.id,jdbcType=INTEGER},
+		address = #{record.address,jdbcType=VARCHAR},
+		balance = #{record.balance,jdbcType=DOUBLE},
+		email = #{record.email,jdbcType=VARCHAR},
+		idNumber = #{record.idnumber,jdbcType=VARCHAR},
+		income = #{record.income,jdbcType=DOUBLE},
+		loginAccount = #{record.loginaccount,jdbcType=VARCHAR},
+		nickName = #{record.nickname,jdbcType=VARCHAR},
+		password = #{record.password,jdbcType=VARCHAR},
+		payword = #{record.payword,jdbcType=VARCHAR},
+		sex = #{record.sex,jdbcType=CHAR},
+		state = #{record.state,jdbcType=INTEGER},
+		userName = #{record.username,jdbcType=VARCHAR},
+		creditScore = #{record.creditscore,jdbcType=BIGINT},
+		profession = #{record.profession,jdbcType=VARCHAR},
+		systemMsg = #{record.systemmsg,jdbcType=INTEGER},
+		userBalance = #{record.userbalance,jdbcType=DOUBLE}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+
+	<!-- 更新用戶用戶信息 -->
+	<update id="updateByPrimaryKeySelective" parameterType="hepu.online.shixun.sos.project.model.User">
+		update user
+		<set>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+
+			</if>
+			<if test="balance != null">
+				balance = #{balance,jdbcType=DOUBLE},
+
+			</if>
+			<if test="constellations!= null">
+				constellations=#{constellations,jdbcType=VARCHAR},
+
+			</if>
+			<if test="occupation != null">
+				occupation=#{occupation,jdbcType=VARCHAR},
+
+			</if>
+			<if test="hobby != null">
+				hobby=#{hobby,jdbcType=VARCHAR},
+
+			</if>
+			<if test="age != null">
+				age=#{age,jdbcType=INTEGER},
+			</if>
+			<if test="company != null">
+				company=#{company,jdbcType=VARCHAR},
+			</if>
+			<if test="msg != null">
+				msg=#{msg,jdbcType=VARCHAR},
+			</if>
+			<if test="profit != null">
+				profit=#{profit,jdbcType=DOUBLE},
+
+			</if>
+			<if test="idNumber != null">
+				idNumber = #{idNumber,jdbcType=VARCHAR},
+			</if>
+			<if test="income != null">
+				income = #{income,jdbcType=DOUBLE},
+			</if>
+			<if test="loginAccount != null">
+				loginAccount = #{loginAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="nickName != null">
+				nickName = #{nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="payword != null">
+				payword = #{payword,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{record.sex,jdbcType=CHAR},
+			</if>
+			<if test="state != null">
+				state = #{state,jdbcType=INTEGER},
+			</if>
+			<if test="userName != null">
+				userName = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="labelling != null">
+				labelling=#{labelling,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="labelling != null">
+				labelling=#{labelling,jdbcType=VARCHAR},
+			</if>
+			<if test="cardNumber != null">
+				cardNumber = #{cardNumber,jdbcType=VARCHAR},
+			</if>
+
+
+
+
+
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="User">
+		update user
+		set address = #{address,jdbcType=VARCHAR},
+		balance = #{balance,jdbcType=DOUBLE},
+		constellations=#{constellations,jdbcType=VARCHAR},
+		occupation=#{occupation,jdbcType=VARCHAR},
+		hobby=#{hobby,jdbcType=VARCHAR},
+		age=#{age,jdbcType=INTEGER},
+		msg=#{msg,jdbcType=VARCHAR},
+		profit=#{profit,jdbcType=DOUBLE},
+		company=#{company,jdbcType=VARCHAR},
+		labelling=#{labelling,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		idNumber = #{idNumber,jdbcType=VARCHAR},
+		cardNumber = #{cardNumber,jdbcType=VARCHAR},
+		income = #{income,jdbcType=DOUBLE},
+		loginAccount = #{loginAccount,jdbcType=VARCHAR},
+		nickName = #{nickName,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		payword = #{payword,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=CHAR},
+		state = #{state,jdbcType=INTEGER},
+		userName = #{userName,jdbcType=VARCHAR},
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="getAllUser" resultMap="BaseResultMap">
+		select *
+		from user
+	</select>
+	<update id="lockUserById" parameterType="java.lang.Integer">
+		update user
+		set state=2
+		where id=#{id}
+	</update>
+	<update id="unlockUserById" parameterType="java.lang.Integer">
+		update user
+		set state=0
+		where id=#{id}
+	</update>
+	<select id="selectUserByName" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select *
+		from user
+		where userName=#{userName}
+	</select>
+	<update id="addMoney">
+		update user
+		set balance=balance+#{0}
+		where userName=#{1}
+	</update>
+	<select id="getCurrentUser" parameterType="hepu.online.shixun.sos.project.model.User"
+		resultType="User">
+		select *from user where state=#{state}
+	</select>
+	<insert id="insertUser" parameterType="hepu.online.shixun.sos.project.model.User">
+		insert into
+		user(loginAccount,password,state,msg,balance)
+		values(#{loginAccount}, #{password},#{state},#{msg},#{balance})
+	</insert>
+	<update id="userLogin" parameterType="hepu.online.shixun.sos.project.model.User">
+		update user
+		set msg=#{msg},state=#{state}
+		where loginAccount=#{loginAccount}
+	</update>
+	<update id="clearUser" parameterType="hepu.online.shixun.sos.project.model.User">A update user set
+		msg=#{msg},state=${state} where loginAccount=#{loginAccount} </update>
+
+	<update id="insertUserBalance" parameterType="hepu.online.shixun.sos.project.model.User"> update user set
+		profit=#{profit},balance=#{balance},idNumber=#{idNumber},
+		userName=#{userName},msg=#{msg} where loginAccount=#{loginAccount}
+	</update>
+
+	<update id="rechange" parameterType="hepu.online.shixun.sos.project.model.User"> update user set
+		balance=#{balance} where loginAccount=#{loginAccount} </update>
+
+	<update id="unRechange" parameterType="hepu.online.shixun.sos.project.model.User"> update user set
+		balance=#{balance} where loginAccount=#{loginAccount} </update>
+
+	<update id="inTreasure" parameterType="hepu.online.shixun.sos.project.model.User"> update user set
+		balance=#{balance} where loginAccount=#{loginAccount} </update>
+
+	<update id="outTreasure" parameterType="hepu.online.shixun.sos.project.model.User"> update user set
+		balance=#{balance} where loginAccount=#{loginAccount} </update>
+
+	<update id="editInformation" parameterType="User">
+		update user u
+		set u.userName= #{userName}, u.age=#{age}, u.email=#{email},
+		u.address=#{address}, u.sex=#{sex}, u.hobby=#{hobby},
+		u.constellations=#{constellations}, u.occupation=#{occupation},
+		u.company=#{company}, u.labelling=#{labelling}
+		where id=#{id}
+	</update>
+	<update id="updateInfo">
+		update user u
+		set u.userName=#{0},u.idNumber=#{1},u.payword=#{2}
+		where u.id=#{3}
+
+
+	</update>
+</mapper>

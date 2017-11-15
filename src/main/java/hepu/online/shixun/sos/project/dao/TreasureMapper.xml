@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hepu.online.shixun.sos.project.dao.TreasureMapper" >
+  <resultMap id="BaseResultMap" type="hepu.online.shixun.sos.project.model.Treasure" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="totalMoney" property="totalMoney" jdbcType="DOUBLE" />
+    <result column="ableMoney" property="ableMoney" jdbcType="DOUBLE" />
+    <result column="disableMoney" property="disableMoney" jdbcType="DOUBLE" />
+    <result column="outMoney" property="outMoney" jdbcType="DOUBLE" />
+    <result column="inMoney" property="inMoney" jdbcType="DOUBLE" />
+    <result column="totalProfit" property="totalProfit" jdbcType="DOUBLE" />
+    <result column="dayProfit" property="dayProfit" jdbcType="DOUBLE" />
+    <result column="user_id" property="user_id" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, totalMoney, ableMoney, disableMoney, outMoney, inMoney, totalProfit, dayProfit, user_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="hepu.online.shixun.sos.project.model.TreasureExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from treasure
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from treasure
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from treasure
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="hepu.online.shixun.sos.project.model.TreasureExample" >
+    delete from treasure
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="hepu.online.shixun.sos.project.model.Treasure" >
+    insert into treasure (id, totalMoney, ableMoney, disableMoney, outMoney, inMoney, totalProfit, dayProfit, user_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{totalMoney,jdbcType=DOUBLE}, #{ableMoney,jdbcType=DOUBLE}, 
+      #{disableMoney,jdbcType=DOUBLE}, #{outMoney,jdbcType=DOUBLE}, #{inMoney,jdbcType=DOUBLE}, 
+      #{totalProfit,jdbcType=DOUBLE}, #{dayProfit,jdbcType=DOUBLE},#{user_id,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="hepu.online.shixun.sos.project.model.Treasure" >
+    insert into treasure
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="totalMoney != null" >
+        totalMoney,
+      </if>
+      <if test="ableMoney != null" >
+        ableMoney,
+      </if>
+      <if test="disableMoney != null" >
+        disableMoney,
+      </if>
+      <if test=" outMoney != null" >
+        outMoney,
+      </if>
+      <if test="inMoney != null" >
+        inMoney,
+      </if>
+      <if test="totalProfit != null" >
+        totalProfit,
+      </if>
+      <if test="dayProfit != null" >
+        dayProfit,
+      </if>
+       <if test="user_id != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="totalMoney != null" >
+        #{totalMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="ableMoney != null" >
+        #{ableMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="disableMoney != null" >
+        #{disableMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="outMoney != null" >
+        #{outMoney,jdbcType=VARCHAR},
+      </if>
+      <if test="inMoney != null" >
+        #{inMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="totalProfit != null" >
+        #{totalProfit,jdbcType=VARCHAR},
+      </if>
+      <if test="dayProfit != null" >
+        #{dayProfit,jdbcType=VARCHAR},
+      </if>
+      <if test="user_id != null" >
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="hepu.online.shixun.sos.project.model.TreasureExample" resultType="java.lang.Integer" >
+    select count(*) from treasure
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalMoney != null" >
+        address = #{record.totalMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ableMoney != null" >
+        balance = #{record.ableMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.disableMoney != null" >
+        email = #{record.disableMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.outMoney != null" >
+        idNumber = #{record.outMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.inMoney != null" >
+        income = #{record.inMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.totalProfit != null" >
+        loginAccount = #{record.totalProfit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dayProfit != null" >
+        nickName = #{record.dayProfit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.user_id != null" >
+        nickName = #{record.user_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set id = #{record.id,jdbcType=INTEGER},
+      totalMoney = #{record.totalMoney,jdbcType=DOUBLE},
+      ableMoney = #{record.ableMoney,jdbcType=DOUBLE},
+      disableMoney = #{record.disableMoney,jdbcType=DOUBLE},
+      outMoney = #{record.outMoney,jdbcType=DOUBLE},
+      inMoney = #{record.inMoney,jdbcType=DOUBLE},
+      totalProfit = #{record.totalProfit,jdbcType=DOUBLE},
+      dayProfit = #{record.dayProfit,jdbcType=DOUBLE},
+      user_id = #{record.user_id,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="hepu.online.shixun.sos.project.model.Treasure" >
+    update user
+    <set >
+      <if test="totalMoney != null" >
+        totalMoney = #{totalMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="ableMoney != null" >
+        ableMoney = #{ableMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="disableMoney != null" >
+        disableMoney = #{disableMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="outMoney != null" >
+        outMoney = #{outMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="inMoney != null" >
+        inMoney = #{inMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="totalProfit != null" >
+        totalProfit = #{totalProfit,jdbcType=DOUBLE},
+      </if>
+      <if test="dayProfit != null" >
+        dayProfit = #{dayProfit,jdbcType=DOUBLE},
+      </if>
+      <if test="user_id != null" >
+        user_id = #{user_id,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="hepu.online.shixun.sos.project.model.Treasure" >
+    update user
+    set totalMoney = #{totalMoney,jdbcType=DOUBLE},
+      ableMoney = #{ableMoney,jdbcType=DOUBLE},
+      disableMoney = #{disableMoney,jdbcType=DOUBLE},
+      outMoney = #{outMoney,jdbcType=DOUBLE},
+      inMoney = #{inMoney,jdbcType=DOUBLE},
+      totalProfit = #{totalProfit,jdbcType=DOUBLE},
+      dayProfit = #{dayProfit,jdbcType=DOUBLE},
+      user_id = #{user_id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getCurrentTreasure" parameterType="hepu.online.shixun.sos.project.model.Treasure" resultType="Treasure">
+      select * from treasure,user where user_id=#{user_id}
+  </select>
+ <update id="inTreasure" parameterType="hepu.online.shixun.sos.project.model.Treasure">
+     update treasure set totalMoney=#{totalMoney},ableMoney=#{ableMoney},
+     disableMoney=#{disableMoney},TotalProfit=#{totalProfit} ,dayProfit=#{dayProfit}
+     where inMoney=#{inMoney}
+ </update>
+ <update id="outTreasure" parameterType="hepu.online.shixun.sos.project.model.Treasure">
+     update treasure set totalMoney=#{totalMoney},ableMoney=#{ableMoney},
+     disableMoney=#{disableMoney},TotalProfit=#{totalProfit} ,dayProfit=#{dayProfit}
+     where outMoney=#{outMoney}
+ </update>
+ <insert id="insertYuebao" parameterType="hepu.online.shixun.sos.project.model.Treasure">
+     insert into treasure (totalMoney, ableMoney, disableMoney, outMoney, inMoney, totalProfit, dayProfit, user_id
+      )
+    values (#{totalMoney}, #{ableMoney}, 
+      #{disableMoney}, #{outMoney}, #{inMoney}, 
+      #{totalProfit}, #{dayProfit},#{user_id}
+      )
+ </insert>
+</mapper>

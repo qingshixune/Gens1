@@ -1,0 +1,244 @@
+#mycontent {
+    width: 1000px;
+    height: 588px;
+    margin-top: 60px;
+    margin-left: 225px;
+    float: left;
+}
+
+#mycontent #mycontent-top {
+    width: 1000px;
+    height: 80px;
+}
+
+#mycontent #mycontent-top .fa-github-alt {
+    font-size: 40px;
+    margin-top:-10px;
+}
+
+#mycontent #mycontent-top span {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+#mycontent #mycontent-top #mycontent-top-bottom {
+    width: 995px;
+    height: 30px;
+    margin-top: 5px;
+    background-color: #e4e9eb;
+    border-radius: 8px;
+}
+
+#mycontent #mycontent-left {
+    width: 140px;
+    height: 490px;
+    background-color: #e4e9eb;
+    border-radius: 8px;
+    margin-top: 10px;
+    float: left;
+}
+
+#mycontent #mycontent-right {
+    width: 998px;
+    height: 490px;
+    margin-top: 10px;
+    float: left;
+    border:1px solid #e4e9eb;
+}
+
+#mycontent #mycontent-right #mycontent-right-top {
+    width: 850px;
+    height: 40px;
+    margin-top: 0px;
+    text-align: cente;
+    line-height: 40px;
+}
+
+#mycontent #mycontent-right #mycontent-right-top span {
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 0px auto;
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+#mycontent #mycontent-right #mycontent-right-top hr {
+    margin-top: 2px;
+    *margin: 0;
+    border: 0;
+    color: #e4e9eb;
+    background-color: #e4e9eb;
+    height: 2px
+}
+#mycontent #mycontent-right #myRight-left{
+	width:700px;
+	height:490px;
+    border:1px solid #e4e9eb;
+	float:left;
+}
+#mycontent #mycontent-right #myRight-left-content{
+	width:700px;
+	height:300px;
+    margin-top:95px;
+}
+#mycontent #mycontent-right #myLeft-top{
+	width:640px;
+	height:120px;
+	margin:0px auto;
+    margin-top:30px;
+} 
+#mycontent #mycontent-right #myLeft-top p{
+	font-size:45px;
+	color:#ff8208;
+}
+#mycontent #mycontent-right #myLeft-top #rechange{
+	display:block;
+	border:1px solid #75b9e6;
+	border-radius:5px;
+	width:110px;
+	height:30px;
+	position:relative;
+	top:-45px;
+	left:230px;
+	background-color:#75b9e6;
+}
+#mycontent #mycontent-right #myLeft-top #withdraw{
+	display:block;
+	border:1px solid #75b9e6;
+	border-radius:5px;
+	width:110px;
+	height:30px;
+	position:relative;
+	top:-75px;
+	left:380px;
+
+}
+#mycontent #mycontent-right #myLeft-top .isA{
+	display:block;
+	font-size:18px;
+	margin-top:2px;
+	margin-left:35px;
+	color:white;
+	text-decoration:none;
+}
+#mycontent #mycontent-right #myLeft-top .isA:hover{color:red;}
+#mycontent #mycontent-right #myLeft-top #isA{
+	color:#75b9e6;
+}
+#mycontent #mycontent-right #myLeft-top #isA:hover{color:red;}
+#mycontent #mycontent-right #myLeft-bottom{
+	width:640px;
+	height:120px;
+	margin:0px auto;
+    margin-top:0px;
+} 
+#mycontent #mycontent-right #myLeft-bottom p{
+	font-size:35px;
+	color:gray;
+}
+#mycontent #mycontent-right #myLeft-bottom #myLeft-profit{
+    width:260px;
+    height:110px;
+    float:right;
+    margin-top:-80px;
+} 
+#mycontent #mycontent-right #myLeft-bottom #aLine{
+	display:block;
+	position:relative;
+	top:-70px;
+	left:280px;
+}
+#mycontent #mycontent-right #myLeft-bottom #myLeft-profit span{
+	margin-top:-60px;
+	display:block;
+}
+#mycontent #mycontent-right #myRight-right{
+    width:295px;
+	height:490px;
+	float:right;
+	background-color:#fcfbf7;
+}
+#mycontent #mycontent-right #myRight-right-content{
+    width:200px;
+	height:300px;
+	margin:0px auto;
+    margin-top:106px;
+}
+#mycontent #mycontent-right #myRight-right-content #myRight_content{
+	width:250px;
+	height:200px;
+	margin:0px auto;
+    margin-top:36px;
+    font-size:18px;
+}
+#mycontent #mycontent-right #myRight-right-content #myRight_content p{
+     font-size:35px;
+}	
+
+#chat {
+    width: 120px;
+    height: 645px;
+    border: 1px solid blue;
+    float: right;
+    border: 2px solid #e4e9eb;
+    border-radius: 8px;
+}
+
+#chat .chat-top {
+    width: 180px;
+    height: 100px;
+    border: 1px solid white;
+}
+#chat .chat-top hr{
+	margin-top:10px;
+	border:1px solid #e4e9eb;
+}
+#chat .chat-top .chat-show {
+    width: 120px;
+    height: 40px;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#chat .chat-top .chat-show span {
+    font-size: 22px;
+}
+
+#chat .chat-content {
+    width: 120px;
+    height: 500px;
+}
+
+#chat .chat-content p {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+#chat .chat-content a:hover {
+    color: red;
+}
+
+#chat .chat-bottom {
+    width: 120px;
+    height: 35px;
+}
+
+#chat .chat-bottom hr {
+    margin-top: -10px;
+    border:1px solid #e4e9eb;
+}
+
+#chat .chat-bottom .im-users {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: -35px;
+}
+
+#chat .chat-bottom .fa-envelope {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: -35px;
+}

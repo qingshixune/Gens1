@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 全局配置项 -->
+		<!-- 允许JDBC支持生成的键 -->
+		<setting value="true" name="useGeneratedKeys"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="User" type="hepu.online.shixun.sos.project.model.User"/>
+		<typeAlias alias="Balance" type="hepu.online.shixun.sos.project.model.Balance"/>
+		<typeAlias alias="Treasure" type="hepu.online.shixun.sos.project.model.Treasure"/>
+		<typeAlias alias="Loan" type="hepu.online.shixun.sos.project.model.Loan"/>
+		<typeAlias alias="Records" type="hepu.online.shixun.sos.project.model.Records"/>
+	</typeAliases>
+	<mappers>
+		<!-- 引用映射文件 -->
+		<mapper resource="hepu/online/shixun/sos/project/dao/UserMapper.xml" />
+		<mapper resource="hepu/online/shixun/sos/project/dao/AdminstorMapper.xml" />
+		<mapper resource="hepu/online/shixun/sos/project/dao/SystemMessageMapper.xml" />
+		<mapper resource="hepu/online/shixun/sos/project/dao/LoanMapper.xml" />
+		<mapper resource="hepu/online/shixun/sos/project/dao/BalanceMapper.xml"/>
+		<mapper resource="hepu/online/shixun/sos/project/dao/TreasureMapper.xml"/>
+		<mapper resource="hepu/online/shixun/sos/project/dao/RecordsMapper.xml"/>
+	</mappers>
+</configuration>

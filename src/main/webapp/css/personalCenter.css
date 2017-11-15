@@ -1,0 +1,142 @@
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .input-1 {
+            height: 20px;
+            font-size: 18px;
+        }
+
+        .input-2 {
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .content7 li {
+            color: black;
+            font-size: 20px;
+            font-family: STXingkai;
+
+        }
+
+        .content7 ul {
+            margin-left: 180px;
+            margin-top: 140px;
+        }
+        
+         .btn {
+            margin-left: 130px;
+            
+        }
+
+        .btn1 {
+            height: 30px;
+            width: 100px;
+            background-color: #625757;
+            border: 1px solid #625757;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn2 {
+            margin-left: 40px;
+        }
+
+        .content1{
+            width:1000px;
+        	height:588px;
+        	margin-top:60px;
+        	margin-left:225px;
+        	float: left;
+        	
+        }
+
+        .content2 {
+            width: 300px;
+            height: 237px; 
+            background-color: #1BBC9B;
+        }
+
+        .content3 {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            margin-left:100px;
+            margin-top: 80px;
+            background-color: black;
+            position: absolute;
+        }
+
+        .content4 {
+            font-family: FZShuTi;
+            font-size: 30px;
+            position: absolute;
+            color: black;
+            margin-top: 50px;
+            text-align: center;
+            width: 300px;            
+        }
+
+        .content5 {
+            width: 150px;
+            font-size: 18px;
+            position: absolute;
+            height: 30px;
+            color: black;
+            margin-top: 280px;
+            margin-left: 75px; 
+            background-color: #1BBC9B;
+            border: 1px solid #1BBC9B;
+            border-radius: 4px;
+            font-family: FZShuTi;
+        }
+
+        .content6 {
+            width: 300px;
+            height: 351px;
+            margin-top: 237px;
+            position: absolute;
+            background-color: #89DEB7;
+        }
+
+        .content7 {
+            width: 700px;
+            height: 588px;
+            margin-left: 300px;
+            position: absolute;
+            background-image: url(../images/A3.png);
+        }
+
+        #chat{
+        	width:120px;
+        	height:650px;
+        	border:1px solid blue;
+        	float:right;
+        }
+        #chat .chat-top{
+        	width:180px;
+        	height:90px;
+            border:1px solid red;
+        }
+        #chat .chat-top .chat-show{
+        	width:120px;
+        	height:40px;
+        	margin-top:50px;
+        	text-align: center;
+        	font-weight:lighter;
+            border:1px solid black;
+        }
+        #chat .chat-top .chat-show span{
+        	font-size:22px;
+        }
+        #chat .chat-content{
+        	width:120px;
+        	height:520px;
+            border:1px solid red;
+        }
+        #chat .chat-bottom{
+        	width:120px;
+        	height:35px;
+            border:1px solid gray;
+        }

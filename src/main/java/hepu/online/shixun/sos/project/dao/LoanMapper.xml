@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hepu.online.shixun.sos.project.dao.LoanMapper" >
+  <resultMap id="BaseResultMap" type="hepu.online.shixun.sos.project.model.Loan" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="loanMoney" property="loanmoney" jdbcType="DOUBLE" />
+    <result column="loanDate" property="loandate" jdbcType="VARCHAR" />
+    <result column="repayment" property="repayment" jdbcType="VARCHAR" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="processState" property="processState" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, loanMoney, loanDate, repayment, userName,processState
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="hepu.online.shixun.sos.project.model.LoanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from loan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from loan
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from loan
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="hepu.online.shixun.sos.project.model.LoanExample" >
+    delete from loan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="hepu.online.shixun.sos.project.model.Loan" >
+    insert into loan (id, loanMoney, loanDate, 
+      repayment, userName)
+    values (#{id,jdbcType=INTEGER}, #{loanmoney,jdbcType=DOUBLE}, #{loandate}, 
+      #{repayment}, #{userName,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="hepu.online.shixun.sos.project.model.Loan" >
+    insert into loan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="loanmoney != null" >
+        loanMoney,
+      </if>
+      <if test="loandate != null" >
+        loanDate,
+      </if>
+      <if test="repayment != null" >
+        repayment,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="loanmoney != null" >
+        #{loanmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="loandate != null" >
+        #{loandate,jdbcType=DATE},
+      </if>
+      <if test="repayment != null" >
+        #{repayment,jdbcType=DATE},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="hepu.online.shixun.sos.project.model.LoanExample" resultType="java.lang.Integer" >
+    select count(*) from loan
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update loan
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.loanmoney != null" >
+        loanMoney = #{record.loanmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.loandate != null" >
+        loanDate = #{record.loandate,jdbcType=DATE},
+      </if>
+      <if test="record.repayment != null" >
+        repayment = #{record.repayment,jdbcType=DATE},
+      </if>
+      <if test="record.userid != null" >
+        userid = #{record.userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update loan
+    set id = #{record.id,jdbcType=INTEGER},
+      loanMoney = #{record.loanmoney,jdbcType=DOUBLE},
+      loanDate = #{record.loandate,jdbcType=DATE},
+      repayment = #{record.repayment,jdbcType=DATE},
+      userid = #{record.userid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="hepu.online.shixun.sos.project.model.Loan" >
+    update loan
+    <set >
+      <if test="loanmoney != null" >
+        loanMoney = #{loanmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="loandate != null" >
+        loanDate = #{loandate,jdbcType=DATE},
+      </if>
+      <if test="repayment != null" >
+        repayment = #{repayment,jdbcType=DATE},
+      </if>
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="hepu.online.shixun.sos.project.model.Loan" >
+    update loan
+    set loanMoney = #{loanmoney,jdbcType=DOUBLE},
+      loanDate = #{loandate,jdbcType=DATE},
+      repayment = #{repayment,jdbcType=DATE},
+      userid = #{userid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getAllLoan" resultMap="BaseResultMap">
+  select *
+  from loan
+  </select>
+  <update id="agreeProcess"  parameterType="java.lang.Integer">
+  update loan
+  set processState = 1
+  where id=#{id}
+  </update>
+  <update id="disagreeProcess"  parameterType="java.lang.Integer">
+  update loan
+  set processState = 2
+  where id=#{id}
+  </update>
+  <select id="selectLoanByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  select *
+  from loan
+  where userName=#{userName}
+  </select>
+  <!-- 新增一条loan信息 -->
+
+
+<insert id="insertLoan" parameterType="hepu.online.shixun.sos.project.model.Loan"> 
+insert into 
+loan (loanMoney, loanDate,repayment, userName) 
+values (#{loanmoney},#{loandate},#{repayment},#{username}) 
+
+</insert>
+</mapper>

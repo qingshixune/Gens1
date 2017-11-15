@@ -1,0 +1,65 @@
+#mycontent {
+    width: 1000px;
+    height: 588px;
+    margin-top: 60px;
+    margin-left: 225px;
+    float: left;
+    border: 1px solid red;
+}
+#chat {
+    width: 120px;
+    height: 645px;
+    border: 1px solid blue;
+    float: right;
+    border: 2px solid #e4e9eb;
+    border-radius: 8px;
+}
+#chat .chat-top {
+    width: 180px;
+    height: 100px;
+    border: 1px solid white;
+}
+#chat .chat-top hr{
+	margin-top:10px;
+	border:1px solid #e4e9eb;
+}
+#chat .chat-top .chat-show {
+    width: 120px;
+    height: 40px;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: lighter;
+}
+#chat .chat-top .chat-show span {
+    font-size: 22px;
+}
+#chat .chat-content {
+    width: 120px;
+    height: 500px;
+}
+#chat .chat-content p {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-left:10px;
+}
+#chat .chat-content a:hover {
+    color: red;
+}
+#chat .chat-bottom {
+    width: 120px;
+    height: 35px;
+}
+#chat .chat-bottom hr {
+    margin-top: -10px;
+    border:1px solid #e4e9eb;
+}
+#chat .chat-bottom .im-users {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: -35px;
+}
+#chat .chat-bottom .fa-envelope {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: -35px;
+}

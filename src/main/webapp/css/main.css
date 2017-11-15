@@ -1,0 +1,20 @@
+#content .content-wrapper .row  .fa-th-list{
+	color:black;
+}
+.wrap-outer {
+    margin-left: calc(100vw - 100%);
+}
+#aSystem {
+	display:block;
+	margin-left:5px;
+	margin-top:5px;
+	font-size:15px;
+	color:#75b9e6;
+}
+#blog-post-text{
+	font-size:16px;
+}
+#text-center{
+   font-size:16px;
+   text-align:left;
+}

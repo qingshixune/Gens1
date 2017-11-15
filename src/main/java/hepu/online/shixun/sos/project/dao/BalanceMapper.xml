@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hepu.online.shixun.sos.project.dao.BalanceMapper" >
+  <resultMap id="BaseResultMap" type="hepu.online.shixun.sos.project.model.Balance" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="income" property="income" jdbcType="DOUBLE" />
+    <result column="transfer" property="transfer" jdbcType="DOUBLE" />
+    <result column="userBalance" property="userBalance" jdbcType="DOUBLE" />
+    <result column="payword" property="payword" jdbcType="VARCHAR" />
+    <result column="cardNumber" property="cardNumber" jdbcType="VARCHAR" />
+    <result column="cardPwd" property="cardPwd" jdbcType="VARCHAR" />
+    <result column="cardType" property="cardType" jdbcType="VARCHAR" />
+    <result column="user_id" property="user_id" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, income, transfer, userBalance, cardNumber, cardPwd,cardType, user_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="hepu.online.shixun.sos.project.model.BalanceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from balance
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from balance
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from balance
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="hepu.online.shixun.sos.project.model.BalanceExample" >
+    delete from balance
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="hepu.online.shixun.sos.project.model.User" >
+    insert into balance (id,userBalance, cardNumber income,transfer,cardPwd,cardType,payword
+      )
+    values (#{id,jdbcType=INTEGER}, #{userBalance,jdbcType=DOUBLE}, 
+    #{cardNumber,jdbcType=VARCHAR}, #{income,jdbcType=DOUBLE},
+    #{transfer,jdbcType=DOUBLE},#{cardPwd,jdbcType=VARCHAR},#{cardType,jdbcType=VARCHAR},
+       #{payword,jdbcType=VARCHAR}, #{user_id,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="hepu.online.shixun.sos.project.model.Balance" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userBalance != null" >
+        userBalance,
+      </if>
+      <if test="transfer != null" >
+        transfer,
+      </if>
+      <if test="cardNumber != null" >
+        cardNumber,
+      </if>
+      <if test="cardPwd != null" >
+        cardPwd,
+      </if>
+      <if test="cardPwd != null" >
+        cardType,
+      </if>
+      <if test="income != null" >
+        income,
+      </if>
+      <if test="payword != null" >
+        payword,
+      </if>
+      <if test="username != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userBalance != null" >
+        #{userBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="cardPwd != null" >
+        #{cardPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNumber != null" >
+        #{cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNumber != null" >
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        #{income,jdbcType=DOUBLE},
+      </if>
+      <if test="transfer != null" >
+        #{transfer,jdbcType=DOUBLE},
+      </if>
+      <if test="payword != null" >
+        #{payword,jdbcType=VARCHAR},
+      </if>
+      <if test="user_id != null" >
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="hepu.online.shixun.sos.project.model.BalanceExample" resultType="java.lang.Integer" >
+    select count(*) from balance
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update balance
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userBalance != null" >
+        balance = #{record.userBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.idnumber != null" >
+        cardPwd = #{record.cardPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idnumber != null" >
+        cardNumber = #{record.cardNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idnumber != null" >
+        cardType = #{record.cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.income != null" >
+        income = #{record.income,jdbcType=DOUBLE},
+      </if>
+      <if test="record.transfer != null" >
+        income = #{record.transfer,jdbcType=DOUBLE},
+      </if>
+      <if test="record.payword != null" >
+        payword = #{record.payword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null" >
+        user_id = #{record.user_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update balance
+    set id = #{record.id,jdbcType=INTEGER},
+      userBalance = #{record.userBalance,jdbcType=DOUBLE},
+      cardPwd = #{record.cardPwd,jdbcType=VARCHAR},
+      cardNumber = #{record.cardNumber,jdbcType=VARCHAR},
+      cardType = #{record.cardType,jdbcType=VARCHAR},
+      income = #{record.income,jdbcType=DOUBLE},
+      transfer = #{record.transfer,jdbcType=DOUBLE},
+      payword = #{record.payword,jdbcType=VARCHAR},
+      user_id = #{record.user_id,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="hepu.online.shixun.sos.project.model.Balance" >
+    update balance
+    <set >
+      <if test="userBalance != null" >
+        balance = #{userBalance,jdbcType=DOUBLE},
+      </if>
+      <if test="idnumber != null" >
+       cardPwd= #{cardPwdr,jdbcType=VARCHAR},
+      </if>
+       <if test="idnumber != null" >
+        cardNumber = #{cardNumber,jdbcType=VARCHAR},
+      </if>
+       <if test="idnumber != null" >
+        cardType = #{cardType,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        income = #{income,jdbcType=DOUBLE},
+      </if>
+       <if test="transfer != null" >
+        income = #{transfer,jdbcType=DOUBLE},
+      </if>
+      <if test="payword != null" >
+        payword = #{payword,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_id = #{user_id,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="hepu.online.shixun.sos.project.model.Balance" >
+    update user
+    set userBalance = #{userBalance,jdbcType=DOUBLE},
+      cardPwd = #{cardPwd,jdbcType=VARCHAR},
+      cardNumber = #{cardNumber,jdbcType=VARCHAR},
+      cardType = #{cardType,jdbcType=VARCHAR},
+      income = #{income,jdbcType=DOUBLE},
+       transfer = #{transfer,jdbcType=DOUBLE},
+      payword = #{payword,jdbcType=VARCHAR},
+      user_id=#{user_id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="rechange" parameterType="hepu.online.shixun.sos.project.model.Balance">
+      update balance set userBalance=#{userBalance} where cardNumber=#{cardNumber}
+  </update>
+  <update id="unRechange" parameterType="hepu.online.shixun.sos.project.model.Balance">
+      update balance set userBalance=#{userBalance} where cardNumber=#{cardNumber}
+  </update>
+  <select id="getCurrentCard" parameterType="hepu.online.shixun.sos.project.model.Balance" resultType="Balance">
+      select * from balance where user_id=${user_id}
+  </select>
+  <insert id="addCard" parameterType="hepu.online.shixun.sos.project.model.Balance">
+      insert into balance(cardType,cardNumber,msg,user_id) values(#{cardType},#{cardNumber},#{msg},#{user_id});
+  </insert>
+  <delete id="deleteCard" parameterType="hepu.online.shixun.sos.project.model.Balance">
+      delete from balance where cardNumber=#{cardNumber}
+  </delete>
+</mapper>

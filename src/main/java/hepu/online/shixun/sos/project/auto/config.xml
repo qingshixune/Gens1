@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="mysql-connector-java-5.1.13-bin.jar" />
+
+	<context id="MySqlTables" targetRuntime="MyBatis3">
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/financial_genius" userId="root"
+			password="qazasd123456li">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="hepu.online.shixun.sos.project.model"
+			targetProject="../">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="hepu.online.shixun.sos.project.dao"
+			targetProject="../">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="hepu.online.shixun.sos.project.dao" targetProject="../">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="user" domainObjectName="User"></table>
+		<table tableName="adminstor" domainObjectName="Adminstor"></table>
+		<table tableName="records" domainObjectName="Records"></table>
+		<table tableName="bank_card" domainObjectName="BankCard"></table>
+		<table tableName="friends" domainObjectName="Friends"></table>
+		<table tableName="message" domainObjectName="Message"></table>
+		<table tableName="loan" domainObjectName="Loan"></table>
+		<table tableName="system_message" domainObjectName="SystemMessage"></table>
+
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,221 @@
+#mycontent {
+    width: 1000px;
+    height: 588px;
+    margin-top: 60px;
+    margin-left: 225px;
+    float: left;
+}
+
+#mycontent #mycontent-top {
+    width: 1000px;
+    height: 80px;
+}
+
+#mycontent #mycontent-top .fa-github-alt {
+    font-size: 40px;
+    margin-top:-10px;
+}
+
+#mycontent #mycontent-top span {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+#mycontent #mycontent-top #mycontent-top-bottom {
+    width: 995px;
+    height: 30px;
+    margin-top: 5px;
+    background-color: #e4e9eb;
+    border-radius: 8px;
+}
+
+#mycontent #mycontent-left {
+    width: 140px;
+    height: 490px;
+    background-color: #e4e9eb;
+    border-radius: 8px;
+    margin-top: 10px;
+    float: left;
+}
+
+#mycontent #mycontent-right {
+    width: 998px;
+    height: 490px;
+    margin-top: 10px;
+    float: left;
+    border:1px solid #e4e9eb;
+}
+
+#mycontent #mycontent-right #mycontent-right-top {
+    width: 850px;
+    height: 40px;
+    margin-top: 0px;
+    text-align: cente;
+    line-height: 40px;
+}
+
+#mycontent #mycontent-right #mycontent-right-top span {
+    display: block;
+    width: 100px;
+    height: 40px;
+    margin: 0px auto;
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+#mycontent #mycontent-right #mycontent-right-top hr {
+    margin-top: 2px;
+    *margin: 0;
+    border: 0;
+    color: #e4e9eb;
+    background-color: #e4e9eb;
+    height: 2px
+}
+#mycontent #mycontent-right #myRight-left{
+	width:700px;
+	height:490px;
+    border:1px solid #e4e9eb;
+	float:left;
+}
+#mycontent #mycontent-right #myRight-left-content{
+	width:700px;
+	height:400px;
+    margin-top:55px;
+    font-size:25px;
+    text-align:center;
+}
+
+#mycontent #mycontent-right #myRight-left-content #left-top{
+	width:700px;
+	height:200px;
+    margin-top:35px;
+}
+#mycontent #mycontent-right #myRight-left-content #left-top input{
+	width:200px;
+	height:28px;
+}
+#mycontent #mycontent-right #myRight-left-content #left-top b{
+	display:block;
+	width:130px;
+	height:31px;
+    position:relative;
+    top:30px;
+    left:184px;
+	text-align:left;
+	font-weight:normal;
+}
+#mycontent #mycontent-right #myRight-left-content #left-top span{
+	display:block;
+	float:right;
+	width:388px;
+	height:31px;
+	text-align:left;
+}
+#mycontent #mycontent-right #myRight-left-content #left-top button{
+	width:330px;
+	height:31px;
+	line-height:25px;
+	font-size:22px;
+	background-color:#75b9e6;
+	color:white;
+}
+#mycontent #mycontent-right #myRight-right{
+    width:295px;
+	height:490px;
+	float:right;
+	background-color:#fcfbf7;
+}
+#mycontent #mycontent-right #myRight-right-content{
+    width:200px;
+	height:300px;
+	margin:0px auto;
+    margin-top:106px;
+}
+#mycontent #mycontent-right #myRight-right-content #myRight_content{
+	width:250px;
+	height:200px;
+	margin:0px auto;
+    margin-top:36px;
+    font-size:18px;
+}
+#mycontent #mycontent-right #myRight-right-content #myRight_content p{
+     font-size:35px;
+}	
+#imP{
+	width:140px;
+	height:30px;
+	position:relative;
+	top:-103px;
+	left:520px;
+	font-size:18px;
+	color:red;
+	font-weight:normal;
+}
+
+
+#chat {
+    width: 120px;
+    height: 645px;
+    border: 1px solid blue;
+    float: right;
+    border: 2px solid #e4e9eb;
+    border-radius: 8px;
+}
+
+#chat .chat-top {
+    width: 180px;
+    height: 100px;
+    border: 1px solid white;
+}
+#chat .chat-top hr{
+	margin-top:10px;
+	border:1px solid #e4e9eb;
+}
+#chat .chat-top .chat-show {
+    width: 120px;
+    height: 40px;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#chat .chat-top .chat-show span {
+    font-size: 22px;
+}
+
+#chat .chat-content {
+    width: 120px;
+    height: 500px;
+}
+
+#chat .chat-content p {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+#chat .chat-content a:hover {
+    color: red;
+}
+
+#chat .chat-bottom {
+    width: 120px;
+    height: 35px;
+}
+
+#chat .chat-bottom hr {
+    margin-top: -10px;
+    border:1px solid #e4e9eb;
+}
+
+#chat .chat-bottom .im-users {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: -35px;
+}
+
+#chat .chat-bottom .fa-envelope {
+    font-size: 30px;
+    margin-left: 15px;
+    margin-top: -35px;
+}

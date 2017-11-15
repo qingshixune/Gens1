@@ -1,0 +1,166 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html,
+body {
+    height: 100%
+}
+
+#top {
+    width: 100%;
+    height: 100px;
+    margin: 0px auto;
+    border: 1px solid #e1dede;
+    border-radius: 1px;
+}
+
+#top .title {
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+}
+
+#top .title .title-left {
+    margin-left: 140px;
+    float: left;
+}
+
+#top .title .title-right {
+    margin-right: 135px;
+    float: right;
+}
+
+#top .title .title-right b {
+    display: block;
+    width: 110px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid blue;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#top .title .title-right .log {
+    background-color: #0076ca;
+    float: left;
+    margin-right: 30px;
+}
+
+#top .title .title-right .reg {
+    float: right;
+}
+
+#top .title .title-right b #log {
+    color: white;
+}
+
+#top .title .title-right b a {
+    text-decoration: none;
+    color: #0076ca;
+}
+
+#top .title .title-right b a:hover {
+    color: red;
+}
+
+#msgShow {
+    width: 100%;
+    height: 40px;
+    margin: 0px auto;
+    text-align: center;
+    color: #7f00ff;
+}
+
+#centent {
+    width: 100%;
+    height: 450px;
+}
+
+
+#centent .login {
+    width: 684px;
+    height: 312px;
+    position: relative;
+    left: 300px;
+}
+
+#centent .login .login-left {
+    width: 425px;
+    height: 306px;
+    float: left;
+}
+
+#centent .login .login-left font {
+    font-size: 22px;
+    font-weight:lighter;
+}
+
+#centent .login .login-left h3 {
+    margin-top: 30px;
+    color: red;
+}
+#centent .login .login-left hr{
+	height:0px; 
+	border-top:1px solid #eeeeee; 
+	border-right:0px; 
+	border-bottom:0px;
+	border-left:0px;
+}
+#centent .login .login-left h4 {
+    margin-left: 35px;
+    color:red;
+}
+
+#centent .login .login-left h3 input {
+    display: block;
+    width: 390px;
+    height: 30px;
+    margin-top: -3px;
+    float: right;
+}
+
+#centent .login .login-left h3 a {
+    display: block;
+    float: right;
+    color: #7f00ff;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: normal;
+    text-decoration: none;
+    margin-top: -18px;
+}
+#centent .login .login-left button{
+	width: 425px;
+	height: 40px;
+	background-color: #007aca;
+	margin-top:22px;
+	color: white;
+    border-radius: 6px;
+    cursor:pointer;
+}
+#centent .login .login-right {
+    width: 215px;
+    height: 306px;
+    float: right;
+}
+#centent .login .login-right .signIn{
+	width: 170px;
+	height: 68px;
+    margin-top:50px;
+}
+#centent .login .login-right .signIn a{
+	margin-top:10px;
+    color: #7f00ff;
+    text-decoration: none;
+}
+#centent .login .login-right .signIn button{
+	width: 160px;
+	height: 43px;
+	background-color: #ff424f;
+	color:white;
+	margin-top:8px;
+	border-radius: 6px;
+	cursor:pointer;
+}
